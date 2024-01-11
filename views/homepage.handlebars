@@ -1,0 +1,262 @@
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://m.media-amazon.com/images/I/71V-+sHTipL.jpg" class="d-block w-100 carImage" alt="...">
+      <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0">
+        <h2 class="bg-dark bg-opacity-50 py-2 px-4">Studio Airlines</h2>
+        <p class="bg-dark bg-opacity-50 py-2 px-4">Great service. Great value. Great flying.</p>
+        <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Book a Flight</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.etsystatic.com/21549875/r/il/7ba428/4610156769/il_fullxfull.4610156769_tgxy.jpg" class="d-block w-100 carImage" alt="...">
+      <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0 ">
+        <h2 class="bg-dark bg-opacity-50 py-2 px-4">Book a full-round trip to Italy for the New Years</h2>
+        <p class="bg-dark bg-opacity-50 py-2 px-4 text-warning">Earn 50% off selected flights!</p>
+        <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Learn More</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2hpcHBvdW5pY29ybl9zY2VuZV9vZl8zZF9pbGx1c3RyYXRpb25fYV9haXJwb3J0X3Rlcm1pbmFsX3dpdGhfYV83YzRlMTU3Mi00NzIzLTRiYzAtOThiYy1jNWVhN2E5YjRkZmNfMS5qcGc.jpg" class="d-block w-100 carImage" alt="...">
+      <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0">
+        <h2 class="bg-dark bg-opacity-50 py-2 px-4">Earn 50,000 bonus miles</h2>
+        <p class="bg-dark bg-opacity-50 py-2 px-4">Some representative placeholder content for the third
+          slide.</p>
+        <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="container-sm text-center">
+  <h2 class="mt-3">View Available Flights</h2>
+  {{#if logged_in}}
+      <div class="my-2 card">
+        <div class="card-body">
+          <h5 class="card-title">Locations</h5>
+          <div class="row">
+            <div class="col-sm">
+              <div class="mb-2">
+                <label id="origin-label" for="origin-input" class="form-label"
+                  >Origin</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="bi-pin-map"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    list="origin-options"
+                    id="origin-input"
+                    placeholder="Location"
+                    aria-describedby="origin-label"
+                  />
+                  <datalist id="origin-options"></datalist>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="mb-2">
+                <label
+                  id="destination-label"
+                  for="destination-input"
+                  class="form-label"
+                  >Destination</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="bi-pin-map-fill"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    list="destination-options"
+                    id="destination-input"
+                    placeholder="Location"
+                    aria-describedby="destination-label"
+                  />
+                  <datalist id="destination-options"></datalist>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-2 col">
+          <div class="h-100 card">
+            <div class="card-body">
+              <h5 class="card-title">Dates</h5>
+              <div class="mb-2">
+                <label
+                  id="flight-type-label"
+                  for="flight-type-select"
+                  class="form-label"
+                  >Flight</label
+                >
+                <select
+                  id="flight-type-select"
+                  class="form-select"
+                  aria-describedby="flight-type-label"
+                >
+                  <option value="one-way">One-way</option>
+                  <option value="round-trip">Round-trip</option>
+                </select>
+              </div>
+              <div id="departure-date" class="mb-2">
+                <label
+                  id="departure-date-label"
+                  for="departure-date-input"
+                  class="form-label"
+                  >Departure date</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="bi-calendar"></i>
+                  </span>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="departure-date-input"
+                    aria-describedby="departure-date-label"
+                  />
+                </div>
+              </div>
+              <div id="return-date" class="mb-2">
+                <label
+                  id="return-date-label"
+                  for="return-date-input"
+                  class="form-label"
+                  >Return date</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="bi-calendar-fill"></i>
+                  </span>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="return-date-input"
+                    aria-describedby="return-date-label"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-2 col">
+          <div class="h-100 card">
+            <div class="card-body">
+              <h5 class="card-title">Details</h5>
+              <div class="mb-2">
+                <label
+                  id="travel-class-label"
+                  for="travel-class-select"
+                  class="form-label"
+                  >Travel class</label
+                >
+                <select
+                  class="form-select"
+                  id="travel-class-select"
+                  aria-describedby="travel-class-label"
+                >
+                  <option value="ECONOMY">Economy</option>
+                  <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                  <option value="BUSINESS">Business</option>
+                  <option value="FIRST">First</option>
+                </select>
+              </div>
+              <label class="form-label">Passengers</label>
+              <div class="mb-2">
+                <div class="input-group">
+                  <label for="adults-input" class="input-group-text"
+                    >Adults</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="adults-input"
+                    aria-describedby="adults-label"
+                  />
+                </div>
+                <span id="adults-label" class="form-text"
+                  >12 years old and older</span
+                >
+              </div>
+              <div class="mb-2">
+                <div class="input-group">
+                  <label for="children-input" class="input-group-text"
+                    >Children</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="children-input"
+                    aria-describedby="children-label"
+                  />
+                </div>
+                <span id="children-label" class="form-text"
+                  >2 to 12 years old</span
+                >
+              </div>
+              <div class="mb-2">
+                <div class="input-group">
+                  <label for="infants-input" class="input-group-text"
+                    >Infants</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="infants-input"
+                    aria-describedby="infants-label"
+                  />
+                </div>
+                <span id="infants-label" class="form-text"
+                  >Up to 2 years old</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="search-button" class="w-100 btn btn-primary">Search</button>
+      <div class="border-bottom mb-4 pt-4" id="search-results-separator"></div>
+      <div class="d-flex justify-content-center" id="search-results-loader">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <ul class="list-group mb-4" id="search-results"></ul>
+    </div>
+    {{else}}
+    <div class="my-2 card">
+        <div class="card-body">
+          <h5 class="card-title">Please login or signup to view available flights.</h5>
+        </div>
+    </div>
+    {{/if}}
+    
+
+
+    
+
+    <script src="/js/script.js"></script>
